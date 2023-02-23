@@ -1,0 +1,333 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Space Mono", monospace;
+}
+
+:root {
+    --strong-cyan: hsl(172, 67%, 45%);
+    --very-dark-cyan: hsl(183, 100%, 15%);
+    --grayish-cyan-400: hsl(186, 14%, 43%);
+    --grayish-cyan-500: hsl(184, 14%, 56%);
+    --grayish-cyan-800: hsl(185, 41%, 84%);
+    --grayish-cyan-900: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+    --error: hsl(19, 100%, 52%);
+    font-size: 0.625rem;
+}
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--grayish-cyan-800);
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6.25rem;
+    margin-block: 1rem;
+}
+
+.logo img {
+    display: block;
+}
+
+.main-content {
+    width: 100%;
+    background-color: var(--white);
+    padding: 3.1rem 2.4rem;
+    border-radius: 2rem 2rem 0 0;
+}
+
+.input {
+    padding-inline: 0.7rem;
+    width: 100%;
+}
+
+.bill-amount {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3.2rem;
+}
+
+.bill-amount label {
+    font-size: 1.6rem;
+    color: var(--grayish-cyan-400);
+    margin-bottom: 0.6rem;
+}
+
+.input-box {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+#bill {
+    width: 100%;
+    border-radius: 0.5rem;
+    text-align: right;
+    border: 2px solid var(--grayish-cyan-900);
+    outline: none;
+    background-color: var(--grayish-cyan-900);
+    color: var(--very-dark-cyan);
+    font-size: 2.4rem;
+    padding: 0.5rem 1.8rem 0.4rem;
+}
+
+#bill:focus {
+    border: 2px solid var(--grayish-cyan-500);
+}
+
+.usd-icon {
+    position: absolute;
+    top: 1.7rem;
+    left: 1.9rem;
+}
+
+.tips-container {
+    margin-bottom: 3.2rem;
+}
+
+.tips-container p {
+    font-size: 1.6rem;
+    color: var(--grayish-cyan-400);
+    margin-bottom: 1.7rem;
+}
+
+.tip-percentage {
+    display: grid;
+    align-items: stretch;
+    place-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 2.4rem;
+    gap: 1.7rem;
+}
+
+.tip {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.6rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    background-color: var(--very-dark-cyan);
+    color: var(--white);
+    transition: 0.2s ease-in-out;
+}
+
+.tip.active {
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.custom {
+    background-color: var(--grayish-cyan-900);
+    padding: 0;
+}
+
+.custom input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    font-size: 2.4rem;
+    text-align: right;
+    padding: 0 2rem;
+    border: none;
+    outline: none;
+}
+
+.num-of-people {
+    position: relative;
+    margin-bottom: 3.2rem;
+}
+
+.num-of-people label {
+    font-size: 1.6rem;
+    color: var(--grayish-cyan-400);
+    margin-bottom: 0.6rem;
+}
+
+.num-of-people p {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0rem;
+    color: var(--error);
+    font-size: 1.6rem;
+    transition: 0.3s ease-in-out;
+}
+
+.num-of-people.error p {
+    opacity: 1;
+}
+
+#people-input {
+    width: 100%;
+    text-align: right;
+    border: 2px solid var(--grayish-cyan-900);
+    border-radius: 0.5rem;
+    outline: none;
+    background-color: var(--grayish-cyan-900);
+    color: var(--very-dark-cyan);
+    font-size: 2.4rem;
+    padding: 0.3rem 1.8rem 0.4rem;
+}
+
+#people-input:focus {
+    border: 2px solid var(--grayish-cyan-500);
+}
+
+.input .num-of-people.error #people-input:focus {
+    border-color: var(--error);
+}
+
+.people-box {
+    margin-top: 0.6rem;
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.person-icon {
+    position: absolute;
+    top: 1.7rem;
+    left: 1.9rem;
+}
+
+.result-container {
+    background-color: var(--very-dark-cyan);
+    border-radius: 1.5rem;
+    padding: 2.4rem 2rem 2.4rem 2.4rem;
+}
+
+.bill-per-person {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.tip p {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: var(--white);
+}
+
+.tip p span {
+    font-size: 1.3rem;
+    text-align: left;
+    color: var(--grayish-cyan-400);
+}
+
+.payment {
+    font-size: 1.6rem;
+    color: var(--grayish-cyan-500);
+}
+
+button.reset.disabled {
+    background-color: var(--grayish-cyan-500);
+    color: var(--grayish-cyan-400);
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+button.reset {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+    text-transform: uppercase;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    padding: 0.9rem;
+    margin-top: 1.3rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+button.reset:hover {
+    background-color: var(--grayish-cyan-800);
+}
+
+@media (min-width: 48rem) {
+    .main-content {
+        border-radius: 2rem;
+        width: calc(100% - 4rem);
+    }
+
+    .tip-percentage {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 64rem) {
+    .logo {
+        height: 165px;
+        margin-block: 0;
+    }
+
+    .main-content {
+        max-width: 920px;
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
+        padding: 3.2rem;
+        border-radius: 2.5rem;
+    }
+
+    .input {
+        width: 50%;
+        padding: 1.2rem 1.8rem;
+    }
+
+    .result-container {
+        width: 50%;
+    }
+
+    .bill-amount {
+        margin-bottom: 3.9rem;
+    }
+
+    .tips-container {
+        margin-bottom: 4rem;
+    }
+
+    .custom input {
+        padding: 0 1.2rem;
+    }
+
+    .num-of-people {
+        margin-bottom: 0.5rem;
+    }
+
+    .result-container {
+        padding: 4rem;
+    }
+
+    .bill-per-person {
+        margin-top: 0rem;
+        margin-bottom: 2.2rem;
+    }
+
+    .payment {
+        font-size: 2.5rem;
+    }
+
+    button.reset {
+        margin-top: 9.7rem;
+    }
+}
